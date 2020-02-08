@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.RoleMapper">
+
+
+    <select id="getRolesByUserId" resultType="com.example.demo.entity.Role" parameterType="java.lang.Long">
+       SELECT r.name FROM role r,user_role ur,USER u
+        WHERE r.id=ur.role_id
+        AND u.id=ur.user_id
+        AND u.id=#{id}
+    </select>
+
+</mapper>
